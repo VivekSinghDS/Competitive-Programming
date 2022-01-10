@@ -1,5 +1,5 @@
 from collections import defaultdict
-def groupAnagrams(self, strs):
+def groupAnagrams(strs):
         """
         :type strs: List[str]
         :rtype: List[List[str]]
@@ -18,3 +18,5 @@ def groupAnagrams(self, strs):
                 dic[key] = lst
                 
         return dic.values() 
+
+groupAnagrams(["eat","tea","tan","ate","nat","bat"])
