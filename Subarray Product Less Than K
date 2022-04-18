@@ -1,0 +1,23 @@
+class Solution(object):
+    def numSubarrayProductLessThanK(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        if k<=1:return 0
+        
+        product, wstart = 1, 0
+        count = 0    
+            
+        for wend in range(len(nums)):
+            product *= nums[wend]
+            
+            while(product >= k):
+                print(wstart)
+                product /= nums[wstart]
+                wstart += 1
+                
+            count += wend-wstart+1
+            
+        return count
