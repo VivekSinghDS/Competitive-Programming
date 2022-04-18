@@ -1,0 +1,18 @@
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        countT, window = {}, {}
+        ans = float('infinity')
+        
+        sub_str = ''
+        ans = 0
+        
+        for c in s:
+            if not(c in sub_str):
+                sub_str+=c
+                ans = max(ans, len(sub_str))
+            
+            else:
+                cut = sub_str.index(c)
+                sub_str = sub_str[cut+1:]+c
+                
+        return ans 
