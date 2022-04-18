@@ -1,0 +1,31 @@
+class Solution:
+    def checkInclusion(self, s1: str, s2: str) -> bool:
+        for chars in s1:
+            if not(chars in s2):
+                return False
+            
+            
+        countT, window = {}, {}
+        
+        for i in (s1):
+            countT[i] = 1 + countT.get(i, 0)
+            
+        l = 0
+        
+        for r in range(len(s2)):
+            window[s2[r]] = 1 + window.get(s2[r], 0)
+            
+            if(r+1 >= len(s1)):
+                # print(window, countT)
+                if(window == countT):
+                    return True
+                
+                window[s2[l]]-=1
+                if(window[s2[l]]== 0):
+                    window.pop(s2[l])
+                l+=1
+                
+        return False
+            
+            
+        
