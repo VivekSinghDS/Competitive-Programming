@@ -1,0 +1,36 @@
+class Solution(object):
+    def numSubarraysWithSum(self, nums, goal):
+        """
+        :type nums: List[int]
+        :type goal: int
+        :rtype: int
+        """
+        if(nums == None or len(nums) == 0):return 0
+        
+        def atmost(nums, goal):
+            left, count, sumr = 0, 0, 0
+
+            for right in range(len(nums)):
+
+                sumr += nums[right]
+
+
+
+
+                while(sumr > goal):
+
+                    sumr -= nums[left]
+                    left += 1
+
+
+
+                count += right-left+1
+            return count
+        
+        if(goal==0):
+            return atmost(nums, goal)
+            
+                
+        
+        return atmost(nums, goal)-atmost(nums, goal-1)
+                
