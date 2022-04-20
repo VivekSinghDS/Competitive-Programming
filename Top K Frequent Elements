@@ -1,0 +1,54 @@
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        
+        d = {}
+        
+        for elements in nums:
+            d[elements] = 1 + d.get(elements, 0)
+            
+        buckets = [[] for i in range(len(nums)+1)]
+        # print(d, buckets)     
+        
+        for key, count in d.items():
+            buckets[count].append(key)
+            
+        # print(buckets)
+        res = []
+        for i in range(len(buckets)-1, 0, -1):
+            for n in buckets[i]:
+                res.append(n)
+                
+                if(len(res)==k):
+                    return res
+                
+        
+        
+#         if(len(nums)==1):
+#             return [nums[0]]
+        
+#         d = {}
+        
+#         for ele in nums:
+            
+#             
+#                 d[ele] = 1 + d.get(ele, 0)
+                
+#             
+                
+#         d = dict(sorted(d.items(), key = lambda item:item[1]))
+#         # print(d)
+#         ans = []
+#         d = list(d.keys())
+#         # for i in range
+        
+#         for index, key in enumerate(d[::-1]):
+#             print(k, index)
+#             if not(index == k):
+#                 ans.append(key)
+                
+#             else:
+#                 return ans
+            
+#         return ans 
+        
+        
