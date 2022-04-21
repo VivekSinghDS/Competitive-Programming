@@ -1,0 +1,22 @@
+class Solution:
+    """
+    @param: strs: a list of strings
+    @return: encodes a list of strings to a single string.
+    """
+    def encode(self, strs):
+        # write your code here
+        output_str = ""
+        for ele in strs:
+            output_str += ele+":;"
+
+        return output_str
+
+
+    """
+    @param: str: A string
+    @return: dcodes a single string to a list of strings
+    """
+    def decode(self, str):
+        # write your code here
+        decoded_list = str.split(':;')
+        return decoded_list[:len(decoded_list)-1]
